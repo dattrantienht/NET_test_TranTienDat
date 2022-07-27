@@ -18,5 +18,10 @@ namespace NET_test_TranTienDat.Controllers
             IEnumerable<Employee> objEmployeeList = _db.Employees;
             return View(objEmployeeList);
         }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
     }
 }
