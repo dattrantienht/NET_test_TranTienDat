@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Manage Employees";
+}
+
+<h1>Manage Employees</h1>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>
+                    @obj.Id
+                </td>
+                <td>
+                    @obj.Name
+                </td>
+                <td>
+                    @obj.Email
+                </td>
+                <td>
+                    @obj.Address
+                </td>
+                <td>
+                    @obj.Phone
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
