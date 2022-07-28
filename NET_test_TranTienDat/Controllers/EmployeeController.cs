@@ -7,9 +7,6 @@ namespace NET_test_TranTienDat.Controllers
     public class EmployeeController : Controller
     {
         private readonly AppDbContext _db;
-        [FromForm]
-        public Employee newEmployee { get; set; }
-
 
         public EmployeeController(AppDbContext db)
         {
@@ -23,11 +20,29 @@ namespace NET_test_TranTienDat.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Employee obj)
+        public IActionResult Add([FromForm] Employee obj)
         {
-            _db.Employees.Add(obj);
+            if (ModelState.IsValid)
+            {
+                _db.Employees.Add(obj);
+                _db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var employee = _db.Employees.Find(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            _db.Employees.Remove(employee);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }
