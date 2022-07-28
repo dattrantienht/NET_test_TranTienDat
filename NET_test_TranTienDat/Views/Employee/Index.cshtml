@@ -136,10 +136,10 @@
     test = (id) => {
         $.ajax({
             type: "POST",
-            url: '@Url.Action("Delete","Employee")' + "/?id=" + id,
+            url: '@Url.Action("Delete","Employee")?id='+id,
             success: () => {
                 alert("employee deleted");
-                window.location.href = "/employee/index";
+                window.location.href = "/";
             },
             error: () => {
                 alert("delete failed");
