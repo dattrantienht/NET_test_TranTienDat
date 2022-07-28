@@ -30,7 +30,7 @@ namespace NET_test_TranTienDat.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpDelete]
+        [HttpPost]
         public IActionResult Delete(int id)
         {
             var employee = _db.Employees.Find(id);
